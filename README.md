@@ -77,9 +77,9 @@ From an interactive terminal:
 * Validate the persistence is working.
 
 ```python
-from persistent_small_town_teller import Person, Account, Bank
+from persistent_small_town_teller import Person, Account, Bank1
 
-zc_bank = Bank()
+zc_bank = Bank1()
 zc_bank.customers
 # {}
 zc_bank.accounts
