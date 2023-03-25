@@ -5,15 +5,15 @@ from small_town_teller import Bank, Account, Person
 class PersistenceUtils:
     @staticmethod
     def write_pickle(data):
-        pickle.dump(data, open('save.pickle', 'wb'))
+        pickle.dump(data, open('data.pickle', 'wb'))
 
-        # with open('save.pickle', 'wb') as file:
+        # with open('data.pickle', 'wb') as file:
         #   pickle.dump(data, file)
 
     @staticmethod
     def load_pickle():
-        return pickle.load(open('save.pickle', 'rb'))
-    # with open('save.pickle', 'rb') as file:
+        return pickle.load(open('data.pickle', 'rb'))
+    # with open('data.pickle', 'rb') as file:
     #   data.update(pickle.load(file))
 
 
@@ -26,14 +26,16 @@ class Bank(Bank):
         for value in self.accounts:
             self.add_customer(self.accounts.get(value).ac_owner)
 
+
 if __name__ == '__main__':
     zc_bank = Bank()
     zc_bank.customers
     # {}
     zc_bank.accounts
     # {}
+    zc_bank.save_data()
     zc_bank.load_data()
-    zc_bank.customers
+    print(zc_bank.customers)
     # {1: <persistent_small_town_teller.Person object at 0x1098e6a90>}
-    zc_bank.accounts
+    print(zc_bank.accounts)
     # {1001: <persistent_small_town_teller.Account object at 0x1099e04d0>}
